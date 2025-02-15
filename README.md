@@ -5,7 +5,7 @@ This project is a **REST API Test Automation Framework** built using **Java**, *
 ✅ **Dynamic Data & Assertions** (Using Java Faker)  
 ✅ **Data-Driven Testing** (Using JSON Data Provider)  
 ✅ **Advanced Logging** (Using Log4j)  
-✅ **Allure Reporting** (With Screenshots on Failure)  
+✅ **Allure Reporting** 
 
 ## 📦 Project Structure
 ```plaintext
