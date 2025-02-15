@@ -25,8 +25,10 @@ jobs:
 
       - name: Install Allure
         run: |
-          sudo apt-get update
-          sudo apt-get install -y allure
+          wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.24.0.tgz
+          tar -zxvf allure-2.24.0.tgz
+          sudo mv allure-2.24.0 /opt/allure
+          sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
           allure --version
 
       - name: Cache Maven dependencies
