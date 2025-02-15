@@ -67,12 +67,11 @@ mvn test
 - Configured in `log4j2.xml`.
 - Logs saved in `logs/automation.log`.
 
-### ✅ **Allure Reporting (With Screenshots on Failure)**
+### ✅ **Allure Reporting **
 - Generates **detailed HTML reports**.
-- Takes **screenshots on test failures**.
 - To view the report:
   ```sh
-  mvn allure:serve
+  allure serve allure-result
   ```
 
 ### ✅ **Test Execution via TestNG**
