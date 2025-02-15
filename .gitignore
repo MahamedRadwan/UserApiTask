@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -36,3 +37,19 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore IDE settings
+
+# Ignore temporary files
+*.log
+*.tmp
+
+# Ignore Allure Report Output (only commit allure-results, not generated reports)
+allure-report/
+
+# Ignore TestNG Report Files
+test-output/
+
+# Ignore Dependency Caches
+.mvn/
+.gradle/
