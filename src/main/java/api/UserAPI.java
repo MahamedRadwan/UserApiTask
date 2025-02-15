@@ -8,8 +8,8 @@ import config.ConfigManager;
 public class UserAPI {
     private static final String BASE_URL = ConfigManager.getProperty("baseUrl");
     private static final String USERS_ENDPOINT = "/api/users";
-    private static final String USERS_WITH_ID = USERS_ENDPOINT + "/{id}"; // Placeholder for ID
-    private static final String LIST_USERS = USERS_ENDPOINT + "?page={page}"; // Placeholder for page number
+    private static final String USERS_WITH_ID = USERS_ENDPOINT + "/{id}";
+    private static final String LIST_USERS = USERS_ENDPOINT + "?page={page}";
 
     public static Response createUser(String name, String job) {
         return RestUtils.postRequest(BASE_URL + USERS_ENDPOINT, new User(name, job));
