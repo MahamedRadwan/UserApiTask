@@ -28,24 +28,15 @@ This project is a **REST API Test Automation Framework** built using **Java**, *
 
 ## 🔧 Setup Instructions
 ### 1️⃣ Clone the Repository
-```sh
-git clone <repo-url>
-cd api-automation-framework
-```
 
-### 2️⃣ Install Dependencies
-```sh
-mvn clean install
-```
-
-### 3️⃣ Configure `config.properties`
+### 2️⃣ Configure `config.properties`
 Modify `src/main/resources/config.properties` for base URL and other settings.
 
 ```properties
 baseUrl=https://reqres.in
 ```
 
-### 4️⃣ Run API Tests
+### 3️⃣ Run API Tests
 ```sh
 mvn test
 ```
