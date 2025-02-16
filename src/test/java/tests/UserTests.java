@@ -81,13 +81,13 @@ public class UserTests {
 
     @Test(priority = 5)
     public void testCreateUserWithMissingFields() {
-        Response response = UserAPI.createUser("","-"); // Empty name & job
+        Response response = UserAPI.createUser("","-");
         Assert.assertEquals(response.getStatusCode(), 400, "Expected 400 Bad Request for missing fields");
     }
 
     @Test(priority = 6)
     public void testCreateUserWithNullValues() {
-        Response response = UserAPI.createUser(null, null); // Null values
+        Response response = UserAPI.createUser(null, null);
 
         Assert.assertEquals(response.getStatusCode(), 400, "Expected 400 Bad Request for null values");
     }
