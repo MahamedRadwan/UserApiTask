@@ -25,7 +25,9 @@ public class UserTests {
     public Object[][] userDataFromJson() {
         List<Map<String, String>> jsonData = JsonReaderUtil.readJsonData();
         return jsonData.stream()
-                .map(data -> new Object[]{data.get("name"), data.get("job")})
+                .map(data -> new Object[]{data.get("name"), data.get("job"),
+                            data.get("updatedName"),data.get("updatedJob")
+                })
                 .toArray(Object[][]::new);
     }
 
@@ -48,10 +50,8 @@ public class UserTests {
         Assert.assertEquals(response.getHeader("Content-Type"), "application/json; charset=utf-8", "Content-Type Mismatch");
     }
 
-    @Test(priority = 2, dependsOnMethods = "testCreateUser")
-    public void testUpdateUser() {
-        String updatedName = "Updated Name"; // Example static data, you could make this dynamic from JSON as well
-        String updatedJob = "Senior QA Engineer";
+    @Test(priority = 2,dataProvider = "userDataFromJson" ,dependsOnMethods = "testCreateUser")
+    public void testUpdateUser(String updatedName , String updatedJob) {
 
         Response response = UserAPI.updateUser(userId, updatedName, updatedJob);
 

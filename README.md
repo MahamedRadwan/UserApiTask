@@ -1,11 +1,14 @@
-# UserApiTask
+# API Automation Framework
+
 ## 📌 Overview
 This project is a **REST API Test Automation Framework** built using **Java**, **Rest Assured**, and **TestNG**. It automates API testing for [ReqRes](https://reqres.in/) and includes:
 
 ✅ **Dynamic Data & Assertions** (Using Java Faker)  
+✅ **Negative & Edge Case Testing**  
 ✅ **Data-Driven Testing** (Using JSON Data Provider)  
 ✅ **Advanced Logging** (Using Log4j)  
-✅ **Allure Reporting** 
+✅ **Allure Reporting**  
+✅ **CI/CD Integration** (GitHub Actions Support)
 
 ## 📦 Project Structure
 ```plaintext
@@ -23,20 +26,30 @@ This project is a **REST API Test Automation Framework** built using **Java**, *
 │   ├── allure-results   # Allure Report Output
 ├── testng.xml           # TestNG Configuration
 ├── pom.xml              # Maven Dependencies
+├── .github/workflows    # GitHub Actions Workflow
 └── README.md            # Documentation
 ```
 
 ## 🔧 Setup Instructions
 ### 1️⃣ Clone the Repository
+```sh
+git clone <repo-url>
+cd api-automation-framework
+```
 
-### 2️⃣ Configure `config.properties`
+### 2️⃣ Install Dependencies
+```sh
+mvn clean install
+```
+
+### 3️⃣ Configure `config.properties`
 Modify `src/main/resources/config.properties` for base URL and other settings.
 
 ```properties
 baseUrl=https://reqres.in
 ```
 
-### 3️⃣ Run API Tests
+### 4️⃣ Run API Tests
 ```sh
 mvn test
 ```
@@ -67,14 +80,33 @@ mvn test
 - Configured in `log4j2.xml`.
 - Logs saved in `logs/automation.log`.
 
-### ✅ **Allure Reporting **
+### ✅ **Allure Reporting**
 - Generates **detailed HTML reports**.
 - To view the report:
   ```sh
-  allure serve allure-result
+  mvn allure:serve
   ```
 
 ### ✅ **Test Execution via TestNG**
 - Runs all test classes via `testng.xml`.
 - Includes **Allure TestNG Listener** for better reporting.
+
+### ✅ **CI/CD Integration (GitHub Actions)**
+- Automatically runs tests on **push/pull requests**.
+- Generates and uploads **Allure reports**.
+- Configuration file: `.github/workflows/test.yml`.
+
+## 📌 Running Specific Tests
+### Run Tests by Group
+```sh
+mvn test -Dgroups="smoke"
+```
+
+### Run Tests via TestNG Suite
+```sh
+mvn test -Dsurefire.suiteXmlFiles=testng.xml
+```
+
+---
+🚀 **Happy Testing!**
 

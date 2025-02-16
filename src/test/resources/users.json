@@ -10,5 +10,9 @@
   {
     "name": "Charlie Brown",
     "job": "Data Analyst"
+  },
+  {
+    "updatedName" : "",
+    "updatedJob" : ""
   }
 ]
