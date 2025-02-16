@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="API Automation Suite">
-    <listeners name=" io.qameta.allure.testng.AllureTestNgTestFilter"/>
+    <listener class-name="io.qameta.allure.testng.AllureTestNGListener"/>
     <test name="API Automation Tests">
         <classes>
             <class name="tests.UserTests"/>

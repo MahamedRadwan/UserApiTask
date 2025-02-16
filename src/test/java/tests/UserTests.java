@@ -25,16 +25,21 @@ public class UserTests {
     public Object[][] userDataFromJson() {
         List<Map<String, String>> jsonData = JsonReaderUtil.readJsonData();
         return jsonData.stream()
-                .map(data -> new Object[]{data.get("name"), data.get("job"),
-                            data.get("updatedName"),data.get("updatedJob")
-                })
+                .map(data -> new Object[]{data.get("name"),data.get("job")})
                 .toArray(Object[][]::new);
     }
+    @DataProvider(name = "userUpdatedDataFromJson")
+    public Object[][] userUpdatedDataFromJson() {
+        List<Map<String, String>> jsonData = JsonReaderUtil.readJsonData();
+        return jsonData.stream()
+                .map(data -> new Object[]{ data.get("updatedName"),data.get("updatedJob")})
+                .toArray(Object[][]::new);
+    }
+
 
     @Test(priority = 1, dataProvider = "userDataFromJson")
     public void testCreateUser(String name, String job) {
         Response response = UserAPI.createUser(name, job);
-
         // Assertions
         Assert.assertEquals(response.getStatusCode(), 201, "Status Code Mismatch");
         Assert.assertEquals(response.jsonPath().getString("name"), name, "Name Mismatch");
@@ -50,7 +55,7 @@ public class UserTests {
         Assert.assertEquals(response.getHeader("Content-Type"), "application/json; charset=utf-8", "Content-Type Mismatch");
     }
 
-    @Test(priority = 2,dataProvider = "userDataFromJson" ,dependsOnMethods = "testCreateUser")
+    @Test(priority = 2,dataProvider = "userUpdatedDataFromJson" ,dependsOnMethods = "testCreateUser")
     public void testUpdateUser(String updatedName , String updatedJob) {
 
         Response response = UserAPI.updateUser(userId, updatedName, updatedJob);

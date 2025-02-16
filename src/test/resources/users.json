@@ -1,18 +1,20 @@
 [
   {
     "name": "Alice Smith",
-    "job": "Software Engineer"
+    "job": "Software Engineer",
+    "updatedName": "Alice Updated",
+    "updatedJob": "Senior Software Engineer"
   },
   {
     "name": "Bob Johnson",
-    "job": "Product Manager"
+    "job": "Product Manager",
+    "updatedName": "Bob Updated",
+    "updatedJob": "Lead QA Engineer"
   },
   {
     "name": "Charlie Brown",
-    "job": "Data Analyst"
-  },
-  {
-    "updatedName" : "",
-    "updatedJob" : ""
+    "job": "Data Analyst",
+    "updatedName": "Charlie Updated",
+    "updatedJob": "Lead Data Analyst"
   }
 ]
